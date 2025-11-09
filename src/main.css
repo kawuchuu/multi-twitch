@@ -1,0 +1,30 @@
+@import url('https://rsms.me/inter/inter.css');
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  --bg: #0e0e10;
+  --sub-bg: #18181b;
+  --txt: #ffffff;
+  --bd: #35353b;
+  --accent: #9147ff;
+}
+
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--txt);
+  color-scheme: dark;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
