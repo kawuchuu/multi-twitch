@@ -5,13 +5,25 @@ const props = defineProps<{
   channel: string;
 }>();
 
-onMounted(() => {
-  const player = new window.Twitch.Player(`twitchPlayer-${props.channel}`, {
+let player;
+let intervalTest: number;
+
+function loadTwitch() {
+  player = new window.Twitch.Player(`twitchPlayer-${props.channel}`, {
     width: '100%',
     height: '100%',
     channel: props.channel,
     parent: 'localhost'
   });
+}
+
+onMounted(() => {
+  intervalTest = setInterval(() => {
+    if (window.Twitch && window.Twitch.Player) {
+      loadTwitch();
+      clearInterval(intervalTest);
+    }
+  }, 500);
 })
 </script>
 
